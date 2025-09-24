@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('request_comments', function (Blueprint $table) {
             $table->id();
-            $table->integer('request_id');
+            $table->foreignId('request_id')
+                ->constrained('requests')
+                ->cascadeOnDelete();
             $table->text('text');
-            $table->date('created_at');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

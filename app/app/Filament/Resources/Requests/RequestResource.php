@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Requests;
 use App\Filament\Resources\Requests\Pages\CreateRequest;
 use App\Filament\Resources\Requests\Pages\EditRequest;
 use App\Filament\Resources\Requests\Pages\ListRequests;
+use App\Filament\Resources\Requests\RelationManagers\RequestCommentsRelationManager;
 use App\Filament\Resources\Requests\Schemas\RequestForm;
 use App\Filament\Resources\Requests\Tables\RequestsTable;
 use App\Models\Request;
@@ -35,7 +36,7 @@ class RequestResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RequestCommentsRelationManager::class
         ];
     }
 

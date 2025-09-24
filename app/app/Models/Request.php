@@ -12,4 +12,9 @@ class Request extends Model
         'status',
         'priority'
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(RequestComment::class, 'request_id');
+    }
 }
