@@ -20,22 +20,21 @@ class RequestsTable
                     ->searchable(),
 
                 TextColumn::make('status')
+                    ->sortable()
                     ->label('Статус')
                     ->formatStateUsing(fn(string $state) => Request::STATUSES[$state] ?? $state),
 
                 TextColumn::make('priority')
+                    ->sortable()
                     ->label('Приоритет')
                     ->formatStateUsing(fn(string $state) => Request::PRIORITIES[$state] ?? $state),
 
                 TextColumn::make('created_at')->label('Дата создания')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->date('H:i d-m-Y'),
 
                 TextColumn::make('updated_at')->label('Дата обновления')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->date('H:i d-m-Y'),
+
             ])
             ->filters([
                 //
