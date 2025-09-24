@@ -8,6 +8,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class RequestStatsWidget extends StatsOverviewWidget
 {
+    protected ?string $pollingInterval = '10s';
+
     protected function getStats(): array
     {
         return [

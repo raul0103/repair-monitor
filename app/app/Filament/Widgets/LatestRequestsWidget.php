@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class LatestRequestsWidget extends TableWidget
 {
-
     protected int $limit = 5;
     protected int | string | array $columnSpan = 'full';
 
