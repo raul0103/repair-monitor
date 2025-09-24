@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    Home page
+    <h1>Главная страница</h1>
+
 </body>
 
 </html>

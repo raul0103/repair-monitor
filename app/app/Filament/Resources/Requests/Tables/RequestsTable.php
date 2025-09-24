@@ -15,7 +15,7 @@ class RequestsTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->columns(RequestColumns::get())
+            ->columns(RequestColumns::get(['status', 'priority']))
             ->recordActions([
                 EditAction::make(),
             ])

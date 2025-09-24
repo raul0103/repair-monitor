@@ -7,7 +7,11 @@ use Filament\Tables\Columns\TextColumn;
 
 class RequestColumns
 {
-    public static function get(): array
+    /**
+     * @param array $sortable - Массив ключей по которым будет сортировка
+     * example - ['status','priority']
+     */
+    public static function get(array $sortable = []): array
     {
         return [
             TextColumn::make('title')
@@ -15,12 +19,12 @@ class RequestColumns
                 ->searchable(),
 
             TextColumn::make('status')
-                ->sortable()
+                ->sortable(in_array('status', $sortable))
                 ->label('Статус')
                 ->formatStateUsing(fn(string $state) => Request::STATUSES[$state] ?? $state),
 
             TextColumn::make('priority')
-                ->sortable()
+                ->sortable(in_array('priority', $sortable))
                 ->label('Приоритет')
                 ->formatStateUsing(fn(string $state) => Request::PRIORITIES[$state] ?? $state),
 
