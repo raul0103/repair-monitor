@@ -13,6 +13,9 @@ class RequestsTable extends Component
     public $sortField = 'status';
     public $sortDirection = 'asc';
 
+    // Livewire слушает событие 'requestCreated' и вызывает $refresh
+    protected $listeners = ['requestCreated' => '$refresh'];
+
     public function sortBy($field)
     {
         if ($this->sortField === $field) {

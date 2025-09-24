@@ -13,6 +13,7 @@
     <div class="container mx-auto px-6 py-8">
         <h1 class="text-2xl font-bold mb-6">Главная страница</h1>
 
+        @livewire('forms.requests-form')
         @livewire('tables.requests-table')
     </div>
 
