@@ -20,7 +20,8 @@ class LatestRequestsWidget extends TableWidget
                 ->latest()
                 ->limit($this->limit))
             ->columns(RequestColumns::get())
-            ->paginated(false);
+            ->paginated(false)
+            ->poll('10s');
     }
 
     // protected function getHeading(): string
