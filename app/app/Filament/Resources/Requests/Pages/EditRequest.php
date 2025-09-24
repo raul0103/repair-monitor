@@ -10,6 +10,8 @@ class EditRequest extends EditRecord
 {
     protected static string $resource = RequestResource::class;
 
+    protected static ?string $title = 'Редактирование заявки';
+
     protected function getHeaderActions(): array
     {
         return [

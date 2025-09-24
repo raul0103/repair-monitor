@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Requests\Schemas;
 
+use App\Models\Request;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -14,15 +15,22 @@ class RequestForm
         return $schema
             ->components([
                 TextInput::make('title')
+                    ->label('Название заявки')
                     ->required(),
+
                 Textarea::make('description')
+                    ->label('Описание')
                     ->columnSpanFull(),
+
                 Select::make('status')
-                    ->options(['new' => 'New', 'in_progress' => 'In progress', 'done' => 'Done'])
+                    ->label('Статус')
+                    ->options(Request::STATUSES)
                     ->default('new')
                     ->required(),
+
                 Select::make('priority')
-                    ->options(['low' => 'Low', 'medium' => 'Medium', 'high' => 'High'])
+                    ->label('Приоритет')
+                    ->options(Request::PRIORITIES)
                     ->default('low')
                     ->required(),
             ]);

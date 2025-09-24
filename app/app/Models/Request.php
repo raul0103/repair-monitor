@@ -12,6 +12,16 @@ class Request extends Model
         'status',
         'priority'
     ];
+    public const PRIORITIES = [
+        'low' => 'Низкий',
+        'medium' => 'Средний',
+        'high' => 'Высокий',
+    ];
+    public const STATUSES = [
+        'new' => 'Новая',
+        'in_progress' => 'В работе',
+        'done' => 'Завершена',
+    ];
 
     public function comments()
     {
