@@ -1,0 +1,38 @@
+name: repair-monitor
+
+services:
+  appserver:
+    type: php:8.2
+    via: apache
+    webroot: app/public
+
+  database:
+    type: mysql
+    portforward: 3307
+    creds:
+      database: repair_monitor
+
+  node:
+    type: node:22
+    ports:
+      - 5173:5173
+
+proxy:
+  appserver:
+    - repair-monitor.lndo.site
+
+tooling:
+  composer:
+    service: appserver
+    cmd: composer
+    dir: /app/app
+
+  artisan:
+    service: appserver
+    cmd: php artisan
+    dir: /app/app
+
+  npm:
+    service: node
+    cmd: npm
+    dir: /app/app

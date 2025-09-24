@@ -1,0 +1,36 @@
+# Настройка LANDO
+
+`Если будет несколько проектов на lando одна база laravel вызовет путаницу.`
+
+При использовании "recipe: laravel" название базы данных создавалось по умолчанию - laravel. После манипуляций понял что переименовать базу с рецептом не удается и пришлось создавать конфиг без рецепта.
+
+---
+
+Тяжко было настроить hot server
+
+- Открыть порты в ландо
+
+```yml
+services:
+  node:
+    type: node:22
+    ports:
+      - 5173:5173
+```
+
+- vite.config.js настроить сервер
+
+```js
+  server: {
+    https: false,
+    host: true,
+    port: 5173,
+    hmr: {host: "localhost", protocol: "ws"},
+    watch: {
+      usePolling: true,
+      interval: 3000,
+    },
+  },
+```
+
+После этого успешно работает `lando npm run dev`
