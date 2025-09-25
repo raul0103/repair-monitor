@@ -4,9 +4,9 @@ namespace App\Filament\Pages;
 
 use App\Filament\Widgets\LatestRequestsWidget;
 use App\Filament\Widgets\RequestStatsWidget;
-use Filament\Pages\Page;
+use Filament\Pages\Dashboard as BaseDashboard;
 
-class Dashboard extends Page
+class Dashboard extends BaseDashboard
 {
     protected string $view = 'filament.pages.dashboard';
 
