@@ -5,8 +5,13 @@
 - lando composer install
 - lando artisan migrate
 - lando artisan db:seed
+- lando artisan key:generate
 
-- lando npm run install
+- lando npm install
+- lando npm run build
+
+### DEV
+
 - lando npm run dev
 
 # filament
