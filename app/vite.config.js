@@ -9,13 +9,10 @@ export default defineConfig({
     }),
   ],
   server: {
-    https: false,
     host: true,
     port: 5173,
-    hmr: {host: "localhost", protocol: "ws"},
-    watch: {
-      usePolling: true,
-      interval: 1000,
+    hmr: {
+      host: "localhost",
     },
   },
 });
